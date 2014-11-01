@@ -1,0 +1,13 @@
+mobius:
+  image: smlsunxie/cms-env:latest
+  working_dir: /mobius-cms
+  command: "/bin/bash -c 'git pull origin master && gulp testmodule --module_name cms-plugin-routeList'"
+  volumes:
+  - ./:/mobius-cms/cms_modules/cms-plugin-routeList
+
+  ports:
+    - "3000:3000"
+
+  environment:
+    REMOTE_HOST: "localdocker"
+    REMOTE_PORT: "3000"
